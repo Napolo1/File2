@@ -19,7 +19,7 @@
 
    function successCallback(fs) {
       fs.root.getFile('log.txt', {create: true, exclusive: true}, function(fileEntry) {
-         alert('File creation successfull!')
+         alert('Creacion de archivo terminada!')
       }, errorCallback);
    }
 
@@ -39,7 +39,7 @@ function writeFile() {
 
          fileEntry.createWriter(function(fileWriter) {
             fileWriter.onwriteend = function(e) {
-               alert('Write completed.');
+               alert('Escritura completa.');
             };
 
             fileWriter.onerror = function(e) {
@@ -73,6 +73,7 @@ function readFile() {
                txtArea.value = this.result;
             };
             reader.readAsText(file);
+            alert('Lectura completada.');
          }, errorCallback);
       }, errorCallback);
    }
@@ -91,7 +92,7 @@ function removeFile() {
       fs.root.getFile('log.txt', {create: false}, function(fileEntry) {
 
          fileEntry.remove(function() {
-            alert('File removed.');
+            alert('Archivo removido.');
          }, errorCallback);
       }, errorCallback);
    }
